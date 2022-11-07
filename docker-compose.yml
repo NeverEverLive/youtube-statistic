@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./logs:/logs
+      - ./configs:/configs
+      - ./resources:/resources
+    env_file:
+      - .env
+    ports:
+      - target: 8000
+        published: 8000
+        mode: host
